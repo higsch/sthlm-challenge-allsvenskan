@@ -1,6 +1,6 @@
 # Allsvenskans QR Code generator
 
-![Screenshot of a colorful QR code within a website](screenshot.jpg)
+![Screenshot of a colorful QR code within a website](public/img/screenshot.jpg)
 
 ## Run the viz locally
 
