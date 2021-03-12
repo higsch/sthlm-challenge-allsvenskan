@@ -3,7 +3,11 @@
   import { textInput, colorInput } from '../stores/inputs';
 
   function handleColorClick(id) {
-    colorInput.set(id);
+    if (id === $colorInput) {
+      colorInput.set(null);
+    } else {
+      colorInput.set(id);
+    }
   }
 </script>
 

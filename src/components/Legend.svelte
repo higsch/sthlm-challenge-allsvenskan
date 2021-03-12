@@ -60,7 +60,7 @@
   li {
     display: flex;
     align-items: center;
-    margin: 0.1rem 0;
+    margin: 0.2rem 0;
   }
 
   li > * {
