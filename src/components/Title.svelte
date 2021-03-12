@@ -6,7 +6,7 @@
     An almost useless QR code generator with embedded Allsvenskan statistics.
     Special thanks to the Stockholm Data Visualization community.
   </h3>
-  <h3><a href="https://github.com/higsch/sthlm-challenge-allsvenskan" target="_blank">Data</a>| <a href="https://github.com/Dataviz-Stockholm/challenges/blob/main/Challenge_two-Beautiful-game/Allsvenskan%20-%20All%20time%20stats.csv" target="_blank">Code</a></h3>
+  <h3><a href="https://github.com/Dataviz-Stockholm/challenges/blob/main/Challenge_two-Beautiful-game/Allsvenskan%20-%20All%20time%20stats.csv" target="_blank">Data</a>| <a href="https://github.com/higsch/sthlm-challenge-allsvenskan" target="_blank">Code</a></h3>
 </header>
 
 <style>
