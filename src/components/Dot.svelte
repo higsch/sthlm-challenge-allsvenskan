@@ -14,25 +14,23 @@
   const { register, deregister, invalidate } = getContext('canvas');
   const duration = 400;
 
-  const color = tweened(null, {
+  const colorsTw = tweened(null, {
     duration,
     easing: cubicOut,
     interpolate
   });
   
   function draw(ctx) {
-    // ctx.beginPath();
-    // ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-    // ctx.fillStyle = $color;
-    // ctx.fill();
+    const numColors = $colorsTw.length;
+    const startY = x - r;
+    const width = 2 * r;
 
-    ctx.beginPath();
-    ctx.rect(x - r, y - r, 2 * r, 2 * r);
-    ctx.fillStyle = $color;
-    ctx.fill();
-    // ctx.strokeStyle = 'black';
-    // ctx.lineWidth = 2;
-    // ctx.stroke();
+    for (let i = 0; i < numColors; i++) {
+      ctx.beginPath();
+      ctx.rect(startY + i * width / numColors, y - r, width / numColors, width);
+      ctx.fillStyle = $colorsTw[i];
+      ctx.fill();
+    }
   }
 
   onMount(() => {
@@ -48,5 +46,5 @@
 
 	onDestroy(invalidate);
 
-  $: color.set(darken ? chroma(colors[0]).darken().hex() : colors[0]);
+  $: colorsTw.set(darken ? colors.map(c => chroma(c).darken().hex()) : colors);
 </script>

@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition';
   import { textInput, colorInput } from '../stores/inputs';
   import { css } from '../actions/css';
   import { generateQR } from '../utils/qr';
@@ -18,6 +19,25 @@
   let dots = [];
   let darken = false;
   let randomize = false;
+  let canvas = null;
+
+  function handleDownloadClick() {
+    if (!canvas) return;
+    
+    const lnk = document.createElement('a');
+
+    lnk.download = 'qr_code.png';
+    lnk.href = canvas.toDataURL("image/png;base64");
+
+    if (document.createEvent) {
+      const e = document.createEvent('MouseEvents');
+      e.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+      lnk.dispatchEvent(e);
+    } else if (lnk.fireEvent) {
+      lnk.fireEvent('onclick');
+    }
+  }
 
   $: canvasSize = Math.min(width - canvasMargin, fixedSize);
 
@@ -93,6 +113,8 @@
       <Canvas
         width={canvasSize}
         height={canvasSize}
+        pixelRatio="2"
+        bind:canvas={canvas}
       >
         {#each dots as {index, x, y, r, colors} (index)}
           <Dot
@@ -106,15 +128,32 @@
       </Canvas>
     </div>
   </div>
-  <div class="qr-code-controls">
-    <div class="darken">
-      <input id="darken-input" type="checkbox" bind:checked={darken} />
-      <label for="darken-input">Darken colors</label>
+  {#if (qr)}
+    <div
+      class="qr-code-controls"
+      transition:fade={{duration: 200}}
+    >
+      <div class="darken">
+        <input id="darken-input" type="checkbox" bind:checked={darken} />
+        <label for="darken-input">Darken colors</label>
+      </div>
+      <div class="randomize">
+        <input id="randomize-input" type="checkbox" bind:checked={randomize} />
+        <label for="randomize-input">Shuffle squares</label>
+      </div>
     </div>
-    <div class="randomize">
-      <input id="randomize-input" type="checkbox" bind:checked={randomize} />
-      <label for="randomize-input">Shuffle squares</label>
-    </div>
+  {/if}
+  <div class="qr-code-download">
+    <p>
+      <span class="bullet-number">3</span>
+      <a
+        href="/"
+        download="qr_code.png"
+        on:click|preventDefault={handleDownloadClick}>
+          Download
+      </a>
+      your QR code.
+    </p>
   </div>
 </div>
 
@@ -145,5 +184,19 @@
 
   .qr-code-controls > * {
     margin: 0 0.3rem;
+  }
+
+  .qr-code-download {
+    display: flex;
+    justify-content: center;
+    margin: 0.7rem 0;
+    font-family: var(--font2);
+    font-size: 1.2rem;
+  }
+
+  .qr-code-download p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

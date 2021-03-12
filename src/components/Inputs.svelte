@@ -9,7 +9,7 @@
 
 <div class="inputs">
   <div class="text-input">
-    <label for="user-text"><span class="bullet-number">1</span>Type a URL or any other text here</label>
+    <label for="user-text"><span class="bullet-number">1</span>Type a URL or any other text here.</label>
     <input
       id="user-text"
       type="text"
@@ -18,7 +18,7 @@
     />
   </div>
   <div class="color-input">
-    <label for="user-color"><span class="bullet-number">2</span>Select a color scheme</label>
+    <label for="user-color"><span class="bullet-number">2</span>Select an Allsvenskan color scheme with the TOP12 most successful teams of all times.</label>
     <ul class="color-categories">
       {#each colorCategories as cat (cat.id)}
         <li
@@ -38,12 +38,11 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 1rem 0;
     font-family: var(--font2);
   }
 
   .inputs > * {
-    margin: 0.7rem 0;
+    margin: 0.7rem;
   }
 
   .text-input, .color-input {
@@ -56,21 +55,7 @@
     display: flex;
     align-items: center;
     margin: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-
-  .bullet-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.4rem;
-    color: var(--white);
-    text-align: center;
-    background-color: var(--blue);
-    border: none;
-    border-radius: 50%;
+    font-size: 1.2rem;
   }
 
   .text-input input {
@@ -109,13 +94,16 @@
     padding: 0.1rem 0.3rem;
     font-size: 1rem;
     border: 2px solid var(--blue);
+    border: none;
     border-radius: 3px;
+    background-color: var(--turkis);
     cursor: pointer;
-    transition: border-color 0.2s;
+    user-select: none;
+    transition: background-color 0.2s;
   }
 
   ul.color-categories li:not(.selected):hover {
-    border-color: var(--red);
+    background-color: var(--red);
   }
 
   ul.color-categories li.selected {

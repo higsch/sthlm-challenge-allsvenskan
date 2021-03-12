@@ -6,10 +6,11 @@
   export let height = 0;
   export let pixelRatio = window.devicePixelRatio || 1;
   export let compositeType = '';
+  export let canvas;
 
   const drawFunctions = [];
+  const backgroundColor = '#FFFFFF';
 
-  let canvas;
   let ctx;
   let frameId;
   let pendingInvalidation = false;
@@ -30,7 +31,8 @@
 
   function update() {
     if (!ctx) return;
-    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawFunctions.forEach((fn) => {
       ctx.save();
       fn(ctx);
@@ -45,7 +47,7 @@
     }
   });
 
-  $: ctx = setupCanvas(canvas, width, height, pixelRatio, compositeType);
+  $: ctx = setupCanvas(canvas, width, height, pixelRatio, compositeType, backgroundColor);
 </script>
 
 <canvas bind:this={canvas} />

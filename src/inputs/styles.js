@@ -1,11 +1,11 @@
 export default {
-  font1: '"Akaya Telivigala", cursive',
+  font1: 'Raleway, cursive',
   font2: '"Open Sans", sans-serif',
 
-  red: '#E63946',
+  red: '#FFDB00',
   tint: '#F1FAEE',
   turkis: '#A8DADC',
-  blue: '#457B9D',
+  blue: '#0A1659',
   marin: '#1D3557',
   white: '#FFFFFF'
 };

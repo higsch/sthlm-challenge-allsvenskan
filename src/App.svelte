@@ -7,6 +7,8 @@
   import Title from './components/Title.svelte';
   import Inputs from './components/Inputs.svelte';
   import QRCode from './components/QRCode.svelte';
+  import Legend from './components/Legend.svelte';
+  import Footer from './components/Footer.svelte';
 
   const dataPath = 'data/Allsvenskan_All_time_stats.csv';
 
@@ -14,7 +16,6 @@
 
   onMount(async () => {
     data = await loadData(dataPath);
-    console.log(data)
   });
 </script>
 
@@ -25,6 +26,8 @@
   <Title />
   <Inputs />
   <QRCode data={data} />
+  <Legend data={data} />
+  <Footer />
 </div>
 
 <style>

@@ -5,11 +5,11 @@ export const clubColors = [
   },
   {
     club: 'IFK Göteborg',
-    colors: ['#FCBD00', '234B9A']
+    colors: ['#FCBD00', '#234B9A']
   },
   {
     club: 'AIK',
-    colors: ['#F5E814', '#003155']
+    colors: ['#003155', '#F5E814']
   },
   {
     club: 'IFK Norrköping',
@@ -25,7 +25,7 @@ export const clubColors = [
   },
   {
     club: 'Djurgårdens IF',
-    colors: ['#E53127', '#FEDD03', '#1964B7']
+    colors: ['#1964B7', '#FEDD03', '#E53127']
   },
   {
     club: 'Örgryte IS',
