@@ -4,6 +4,7 @@
   import { css } from '../actions/css';
   import { generateQR } from '../utils/qr';
   import { shuffle } from '../utils/math';
+  import { descending } from 'd3';
 
   import Canvas from './Canvas.svelte';
   import Dot from './Dot.svelte';
@@ -74,7 +75,7 @@
       if ($colorInput && data) {
         const totalValue = data.reduce((acc, cur) => acc + cur[$colorInput], 0);
         let previousNumDots = 0;
-        const dotCountedData = data.map(d => {
+        const dotCountedData = data.sort((a, b) => descending(a[$colorInput], b[$colorInput])).map(d => {
           const numDotsStart = previousNumDots;
           const numDotsEnd = numDotsStart + Math.floor(dotCount * d[$colorInput] / totalValue) - 1;
           previousNumDots = numDotsEnd + 1;
@@ -128,7 +129,7 @@
       </Canvas>
     </div>
   </div>
-  {#if (qr)}
+  {#if (qr && $colorInput)}
     <div
       class="qr-code-controls"
       transition:fade={{duration: 200}}

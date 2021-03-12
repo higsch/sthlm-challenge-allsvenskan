@@ -16,7 +16,7 @@
     <label for="user-text"><span class="bullet-number">1</span>Type a URL or any other text here.</label>
     <input
       id="user-text"
-      type="text"
+      type="search"
       placeholder="Your text"
       bind:value={$textInput}
     />
@@ -64,11 +64,12 @@
 
   .text-input input {
     max-width: 300px;
-    height: 1.5rem;
+    height: 2rem;
     padding: 0.2rem 0.5rem;
     color: var(--blue);
     font-family: var(--font2);
     font-size: 1.2rem;
+    line-height: 1.5rem;
     outline: none;
     border: 2px solid var(--blue);
     border-radius: 3px;
