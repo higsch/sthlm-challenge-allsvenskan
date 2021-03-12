@@ -1,0 +1,1 @@
+# Allsvenskans QR Coder
