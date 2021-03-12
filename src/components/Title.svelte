@@ -1,6 +1,6 @@
 <header>
   
-  <h1>Create your own <img src="img/logo-allsvenskan.png" alt="Logo of Allsvenskan." />llsvenskan QR code</h1>
+  <h1>Create your own <span class="no-wrap"><img src="img/logo-allsvenskan.png" alt="Logo of Allsvenskan." />llsvenskan</span> QR code</h1>
   <h2>in 345px x 345px</h2>
   <h3>
     An almost useless QR code generator with embedded Allsvenskan statistics.

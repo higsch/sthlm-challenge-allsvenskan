@@ -65,3 +65,7 @@ a:hover {
   border: none;
   border-radius: 50%;
 }
+
+.no-wrap {
+  white-space: nowrap;
+}
