@@ -179,6 +179,7 @@
   .qr-code-controls {
     display: flex;
     justify-content: center;
+    margin: 0.2rem 0;
     font-family: var(--font2);
     font-size: 0.8rem;
   }
