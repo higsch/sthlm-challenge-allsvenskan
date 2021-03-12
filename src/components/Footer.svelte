@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 3rem;
     font-family: var(--font2);
     font-size: 0.8rem;
     font-weight: 200;
